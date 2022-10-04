@@ -1,0 +1,232 @@
+* {
+				padding: 0;
+				margin: 0;
+			}
+
+			body {
+				width: 100%;
+				height: 100vh;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+			}
+
+			.helicopter {
+				position: absolute;
+				animation: bounce 5s infinite;
+			}
+			/* 驾驶舱 */
+			.cockpit {
+				position: absolute;
+				overflow: hidden;
+				z-index: 1;
+				width: 195px;
+				height: 195px;
+				border-radius: 100px 40px 50px 50px;
+				background-color: #44d2fd;
+			}
+			/* 驾驶舱玻璃一 */
+			.cockpit::before {
+				content: "";
+				position: absolute;
+				z-index: 1;
+				top: -10px;
+				left: -25px;
+				width: 170px;
+				height: 170px;
+				border-radius: 40px;
+				background-color: #302e37;
+			}
+			/* 驾驶舱玻璃二 */
+			.cockpit::after {
+				content: "";
+				position: absolute;
+				z-index: 1;
+				top: -60px;
+				left: -60px;
+				width: 170px;
+				height: 170px;
+				border-radius: 40px;
+				background-color: rgba(255, 255, 255, 0.25);
+			}
+			/* 机尾 */
+			.tail {
+				position: relative;
+				top: 50px;
+				left: 100px;
+				transform-origin: left center;
+				border-top: 10px solid transparent;
+				border-bottom: 80px solid transparent;
+				border-left: 350px solid #2fadd2;
+				border-bottom-right-radius: 10px;
+				height: 10px;
+			}
+			/* 尾翼 */
+			.empennage {
+				position: relative;
+				top: -90px;
+				left: 448px;
+				transform-origin: right center;
+				overflow: hidden;
+				z-index: 1;
+				width: 80px;
+				height: 80px;
+				border-radius: 100px 40px 50px 50px;
+			}
+			.empennage::after {
+				content: "";
+				position: absolute;
+				z-index: 1;
+				top: -80px;
+				left: -80px;
+				width: 55px;
+				height: 55px;
+				border-radius: 50%;
+				margin:15px 15px;
+				border: 80px solid #2fadd2;
+			}
+			/* 尾部旋翼 */
+			.rotate{
+				width: 55px;
+				height: 55px;
+				border-radius: 100%;
+				position: absolute;
+				top: 25px;
+				left: 463px;
+				z-index: 2;
+				overflow: hidden;
+				background-color: #a299ab;
+				opacity: 0.12;
+			}
+			/* 尾部旋转器 */
+			.rotater{
+				position: absolute;
+				width: 55px;
+				height: 55px;
+				border-radius: 100%;
+				animation: rotate 0.3s linear infinite;
+			}
+			.rotor1 {
+				position: absolute;
+				width: 30px;
+				height: 5px;
+				top: 45%;
+				left: 45%;	
+				background-color: #fff;
+			}
+			.rotor2 {
+				position: absolute;
+				top: 45%;
+				left: 45%;				
+				margin-left: -25px;
+				width: 25px;
+				height: 5px;
+				background-color: #fff;
+			}
+			/* 直升机的尾翼旋转体 */
+			.main2{
+				position: absolute;
+				left: 490px;
+				top: 50px;
+				width: 35px;
+				height: 5px;
+				background: rgb(100,98,105);
+				border-top-left-radius: 20px;
+				border-bottom-left-radius: 20px;
+			}
+			/* 直升机的旋转体 */
+			.main1 {
+				position: absolute;
+				left: 130px;
+				top: -10px;
+				width: 40px;
+				height: 20px;
+				background: #302e37;
+			}
+			/* 旋翼 */
+			.rotor {
+				width: 550px;
+				height: 550px;
+				border-radius: 350px;
+				position: absolute;
+				top: -290px;
+				left: -125px;
+				z-index: 2;
+				overflow: hidden;
+				background-color: #a299ab;
+				opacity: 0.12;
+				transform: scaleY(0.075);
+			}
+			/* 旋转体 */
+			.rotator {
+				position: absolute;
+				width: 550px;
+				height: 550px;
+				border-radius: 350px;
+				animation: rotate 0.5s linear infinite;
+			}
+
+			.rotator div {
+				position: absolute;
+				top: 50%;
+				left: 50%;
+				margin-left: -350px;
+				margin-top: -30px;
+				width: 700px;
+				height: 80px;
+				background-color: #fff;
+			}
+
+			.rotator div:nth-child(1) {
+				transform: rotate(0deg);
+			}
+
+			.rotor div:nth-child(2) {
+				transform: rotate(90deg);
+			}
+			/* 支架 */
+			.Bracket{
+				position: absolute;
+				width: 80px;
+				height:40px;
+				top: 195px;
+				left: 50px;
+				z-index: 2;
+				border-left:10px solid rgb(100,98,105);
+				border-right:10px solid rgb(100,98,105) ;
+				
+			}
+			/* 底座 */
+			.Base{
+				position: absolute;
+				width: 250px;
+				height:20px;
+				background-color: rgb(48,46,55);
+				top: 235px;
+				left: -25px;
+				border-top-left-radius: 10px;
+				border-top-right-radius: 10px;
+				border-bottom-left-radius:20px ;
+				border-bottom-right-radius:20px ;
+			}
+			@keyframes bounce {
+
+				0%,
+				100% {
+					transform: translate(0px, -50px) rotate(-15deg);
+				}
+
+				50% {
+					transform: translate(0px, 50px) rotate(-10deg);
+				}
+			}
+
+			@keyframes rotate {
+				0% {
+					transform: rotate(0deg);
+				}
+
+				100% {
+					transform: rotate(360deg);
+				}
+			}
